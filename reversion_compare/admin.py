@@ -95,7 +95,10 @@ class CompareObject(object):
     def get_related(self):
         if self.field.rel is not None:
             obj = self.version.object_version.object
-            related = getattr(obj, self.field.name)
+            try:
+                related = getattr(obj, self.field.name)
+            except self.field.rel.to.DoesNotExist:
+                related = None
             return related
 
     def get_many_to_many(self):
