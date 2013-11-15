@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: reversion-compare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-25 10:21+0200\n"
+"POT-Creation-Date: 2013-11-15 14:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: ejvos <ejvos@ejvos.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,29 +17,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.py:632 templates/reversion-compare/compare.html:23
+#: admin.py:636 templates/reversion-compare/compare.html:23
 #, python-format
 msgid "Compare %(name)s"
 msgstr "Vergelijk %(name)s"
 
-#: templates/reversion-compare/compare.html:19
+#: admin.py:674
+msgid "No changes"
+msgstr ""
+
 # Already translated.
+#: templates/reversion-compare/compare.html:19
 msgid "Home"
 msgstr ""
 
-#: templates/reversion-compare/compare.html:22
 # Already translated.
+#: templates/reversion-compare/compare.html:22
 msgid "History"
 msgstr ""
 
-#: templates/reversion-compare/compare.html:44
+#: templates/reversion-compare/compare.html:32
 #: templates/reversion-compare/compare_DateTimeField.html:4
 #: templates/reversion-compare/compare_DateTimeField.html:5
-#: templates/reversion-compare/object_history.html:42
+#: templates/reversion-compare/object_history.html:48
 msgid "DATETIME_FORMAT"
 msgstr ""
 
-#: templates/reversion-compare/compare.html:44
+#: templates/reversion-compare/compare.html:32
 #, python-format
 msgid ""
 "\n"
@@ -52,20 +56,19 @@ msgstr ""
 "%(date2)s</strong>:\n"
 "            "
 
-#: templates/reversion-compare/compare.html:48
-#: templates/reversion-compare/compare.html:74
-msgid "Go back to history list"
-msgstr "Terug naar geschiedenis"
+#: templates/reversion-compare/compare.html:36
+msgid "Fields:"
+msgstr "Velden:"
 
-#: templates/reversion-compare/compare.html:61
+#: templates/reversion-compare/compare.html:48
 msgid "Edit comment:"
 msgstr "Wijzigingsbericht:"
 
-#: templates/reversion-compare/compare.html:65
+#: templates/reversion-compare/compare.html:52
 msgid "Note:"
 msgstr "Let op:"
 
-#: templates/reversion-compare/compare.html:67
+#: templates/reversion-compare/compare.html:54
 msgid ""
 "\n"
 "            Fields/entries marked with <sup class=\"follow\">*</sup> are not "
@@ -74,26 +77,34 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"            Velden die zijn gemarkeerd met een <sup class=\"follow\">*</sup> staan niet "
-"in het versiebeheersysteem.\n"
+"            Velden die zijn gemarkeerd met een <sup class=\"follow\">*</sup> "
+"staan niet in het versiebeheersysteem.\n"
 "            Mogelijk is niet alle informatie correct.\n"
 "            "
 
-#: templates/reversion-compare/compare_DateTimeField.html:4
-#: templates/reversion-compare/compare_DateTimeField.html:5
-msgid "time since that date:"
-msgstr "tijd sinds de wijziging:"
+#: templates/reversion-compare/compare.html:61
+msgid "Go back to history list"
+msgstr "Terug naar geschiedenis"
+
+#: templates/reversion-compare/compare_DateField.html:4
+#: templates/reversion-compare/compare_DateField.html:5
+msgid "DATE_FORMAT"
+msgstr ""
+
+#: templates/reversion-compare/compare_PointField.html:5
+msgid "distance:"
+msgstr ""
 
 #: templates/reversion-compare/compare_generic_add.html:4
-msgid "add:"
+msgid "added:"
 msgstr "toegevoegd:"
 
 #: templates/reversion-compare/compare_generic_remove.html:4
-msgid "remove:"
+msgid "removed:"
 msgstr "verwijderd:"
 
-#: templates/reversion-compare/object_history.html:7
 # Already translated.
+#: templates/reversion-compare/object_history.html:7
 msgid ""
 "Choose a date from the list below to revert to a previous version of this "
 "object."
@@ -104,23 +115,23 @@ msgstr ""
 msgid "compare"
 msgstr "Vergelijken"
 
-#: templates/reversion-compare/object_history.html:24
 # Already translated.
+#: templates/reversion-compare/object_history.html:24
 msgid "Date/time"
 msgstr ""
 
-#: templates/reversion-compare/object_history.html:25
 # Already translated.
+#: templates/reversion-compare/object_history.html:25
 msgid "User"
 msgstr ""
 
-#: templates/reversion-compare/object_history.html:26
 # Already translated.
+#: templates/reversion-compare/object_history.html:26
 msgid "Comment"
 msgstr ""
 
-#: templates/reversion-compare/object_history.html:56
 # Already translated.
+#: templates/reversion-compare/object_history.html:62
 msgid ""
 "This object doesn't have a change history. It probably wasn't added via this "
 "admin site."
