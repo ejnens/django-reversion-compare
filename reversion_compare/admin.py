@@ -726,3 +726,8 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
         value1 = obj_compare.value1
         value2 = obj_compare.value2
         return self.generic_add_remove(value1, value2, value1, value2)
+
+    def compare_CharField(self, obj_compare):
+        value1 = obj_compare.value1
+        value2 = obj_compare.value2
+        return self.generic_add_remove(value1, value2, value1, value2)
