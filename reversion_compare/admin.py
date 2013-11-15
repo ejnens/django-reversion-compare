@@ -653,15 +653,24 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
     """
     expand the base class with prepered compare methods.
     """
+    def generic(self, raw_value1, raw_value2, value1, value2):
+        if raw_value1 is None: value1 = ''
+        if raw_value2 is None: value2 = ''
+        html = html_diff(value1, value2)
+        return html
+
     def generic_add_remove(self, raw_value1, raw_value2, value1, value2):
-        if raw_value1 is None:
+        if raw_value1 is None and raw_value2 is not None:
             # a new values was added:
             context = {"value": value2}
             return render_to_string("reversion-compare/compare_generic_add.html", context)
-        elif raw_value2 is None:
+        elif raw_value2 is None and raw_value1 is not None:
             # the existing value was removed:
             context = {"value": value1}
             return render_to_string("reversion-compare/compare_generic_remove.html", context)
+        elif raw_value1 is None and raw_value2 is None:
+            # field hasn't actually changed, but is still marked as such?
+            return _('No changes')
         else:
             html = html_diff(value1, value2)
             return html
@@ -704,7 +713,7 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
         else:
             value2 = None
 
-        return self.generic_add_remove(value1, value2, value1, value2)
+        return self.generic(value1, value2, value1, value2)
 
     def compare_DateTimeField(self, obj_compare):
         ''' compare all model datetime model field in ISO format '''
@@ -725,12 +734,12 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
     def compare_FloatField(self, obj_compare):
         value1 = obj_compare.value1
         value2 = obj_compare.value2
-        return self.generic_add_remove(value1, value2, value1, value2)
+        return self.generic(value1, value2, value1, value2)
 
     def compare_CharField(self, obj_compare):
         value1 = obj_compare.value1
         value2 = obj_compare.value2
-        return self.generic_add_remove(value1, value2, value1, value2)
+        return self.generic(value1, value2, value1, value2)
 
     def compare_PointField(self, obj_compare):
         both = obj_compare.value1 is not None and obj_compare.value2 is not None
