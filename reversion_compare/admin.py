@@ -713,3 +713,11 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
             "date2": obj_compare.value2,
         }
         return render_to_string("reversion-compare/compare_DateTimeField.html", context)
+
+    def compare_DateField(self, obj_compare):
+        ''' compare all model datetime model field in ISO format '''
+        context = {
+            "date1": obj_compare.value1,
+            "date2": obj_compare.value2,
+        }
+        return render_to_string("reversion-compare/compare_DateField.html", context)
