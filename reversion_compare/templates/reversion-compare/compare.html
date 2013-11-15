@@ -35,7 +35,6 @@
         </p>
         {% for field_diff in compare_data %}
             <h4>{{ field_diff.field.verbose_name }}{% if field_diff.is_related and not field_diff.follow %}<sup class="follow">*</sup>{% endif %}</h4>
-            {% if field_diff.field.help_text %}<p class="help">{{ field_diff.field.help_text }}</p>{% endif %}
             <div class="module">
                 <p>{{ field_diff.diff }}</p>
             </div>
