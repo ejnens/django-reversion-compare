@@ -731,3 +731,13 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
         value1 = obj_compare.value1
         value2 = obj_compare.value2
         return self.generic_add_remove(value1, value2, value1, value2)
+
+    def compare_PointField(self, obj_compare):
+        both = obj_compare.value1 is not None and obj_compare.value2 is not None
+        distance = obj_compare.value1.distance(obj_compare.value2) if both else None
+        context = {
+            "point1": obj_compare.value1,
+            "point2": obj_compare.value2,
+            "distance": distance,
+        }
+        return render_to_string("reversion-compare/compare_PointField.html", context)

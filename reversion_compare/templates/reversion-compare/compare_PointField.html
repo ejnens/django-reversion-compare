@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<pre class="highlight">
+<del>- {{ point1 }}</del>
+<ins>+ {{ point2 }}</ins> {% trans 'distance:' %} {{ distance|floatformat }} m
+</pre>
