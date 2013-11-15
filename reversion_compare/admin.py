@@ -721,3 +721,8 @@ class CompareVersionAdmin(BaseCompareVersionAdmin):
             "date2": obj_compare.value2,
         }
         return render_to_string("reversion-compare/compare_DateField.html", context)
+
+    def compare_FloatField(self, obj_compare):
+        value1 = obj_compare.value1
+        value2 = obj_compare.value2
+        return self.generic_add_remove(value1, value2, value1, value2)
