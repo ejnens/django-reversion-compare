@@ -9,13 +9,13 @@
         <div class="module">
             {% if action_list %}
                 {% if compare_view %}<form method="GET" action="../history/compare/">{% endif %}
-                <table id="change-history" class="table table-bordered table-striped">
+                <table id="change-history">
                     <thead>
                         <tr>
                             {% if compare_view %}
-                                <th scope="col" colspan="2">
+                                <th scope="col">
                                     {% if comparable %}
-                                        <input type="submit" value="{% trans 'compare' %}" class="btn btn-primary">
+                                        <input type="submit" value="{% trans 'compare' %}">
                                     {% else %}
                                        <i>{% trans 'compare' %}</i>
                                     {% endif %}
@@ -32,14 +32,8 @@
                                 {% if compare_view %}
                                 <td scope="row">
                                     {% if comparable %}
-                                       <input type="radio" name="version_id1" value="{{ action.version.pk }}" {% if action.first %}style="visibility:hidden" {% endif %}{% if action.second %}checked="checked" {% endif %}>
-                                    {% else %}
-                                       <i>-</i>
-                                    {% endif %}
-                                </td>
-                                <td scope="row">
-                                    {% if comparable %}
-                                       <input type="radio" name="version_id2" value="{{ action.version.pk }}" {% if action.first == 1 %}checked="checked" {% endif %}>
+                                       <input type="radio" name="version_id1" value="{{ action.version.pk }}" {% if action.first %}style="visibility:hidden" {% endif %}{% if action.second %}checked="checked" {% endif %}/>
+                                       <input type="radio" name="version_id2" value="{{ action.version.pk }}" {% if action.first == 1 %}checked="checked" {% endif %}/>
                                     {% else %}
                                        <i>-</i>
                                     {% endif %}
